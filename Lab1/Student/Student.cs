@@ -3,63 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
-namespace circle
+namespace maximum_and_mimimum
 {
-    public class Student
-    {
-        public string Surname, name;
-        public double gpa;
-        public int age;
-        public int height;
-
-        public Student()
-        {
-            Surname = "Oral";
-            name = "Almas";
-            age = 18;
-            height = 178;
-            gpa = 3;
-        }
-        public Student(string Surname, string name, int age, int height, double gpa)
-        {
-            this.Surname = Surname;
-            this.name = name;
-            this.age = age;
-            this.height = height;
-            this.gpa = gpa;
-        }
-        public static void getgpa(double gpa)
-        {
-            Console.WriteLine(gpa);
-        }
-
-        public override string ToString()
-        {
-            return Surname + ' ' + name + ' ' + age + ' ' + height + ' ' + gpa;
-        }
-
-    }
-
-
-
-    class Program
+    public class Class1
     {
         static void Main(string[] args)
         {
-            string Surname, name;
-            int age, height;
-            double gpa;
-            Surname = Console.ReadLine();
-            name = Console.ReadLine();
-            age = int.Parse(Console.ReadLine());
-            height = int.Parse(Console.ReadLine());
-            gpa = double.Parse(Console.ReadLine());
 
-            Student a = new Student(Surname, name, age, height, gpa);
-            Student.getgpa(a.gpa);
-            Console.WriteLine(a);
+            string line2 = File.ReadAllText(@"C:\Users\User\A.txt");
+
+
+
+            string[] line = line2.Split(' ');
+
+            int maxx = -10000000;
+            int minn = 10000000;
+            foreach (string s in line)
+            {
+                maxx = Math.Max(maxx, int.Parse(s));
+                minn = Math.Min(minn, int.Parse(s));
+
+            }
+            StreamWriter sw = new StreamWriter(@"C:\Users\User\A");
+            sw.WriteLine("Maximum number is " + maxx);
+            sw.WriteLine("Minimum number is " + minn);
+            sw.Close();
+
+
             Console.ReadKey();
+
         }
     }
 }

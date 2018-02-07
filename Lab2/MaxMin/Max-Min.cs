@@ -11,7 +11,7 @@ namespace lab2_1
     {
         static void Main(string[] args)
         {
-            string line = File.ReadAllText(@"C:\Users\user\user\maxmin.txt");
+            string line = File.ReadAllText(@"C:\Users\User\A.txt");
             string[] line1 = line.Split(' ');
             int maxx = -123123132;
             int minn = 123123123;

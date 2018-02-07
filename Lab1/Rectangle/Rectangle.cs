@@ -3,46 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
-namespace ConsoleApp5
+namespace Hello
 {
-    class Rectangle
-    {
-        public double height, width;
-        public Rectangle()
-        {
-            height = 0;
-            width = 0;
-        }
-        public Rectangle(double a, double b)
-        {
-            height = a;
-            width = b;
-        }
-        public static double FindArea(double a, double b)
-        {
-            return a * b;
-        }
-        public static double FindPerimeter(double a, double b)
-        {
-            return 2 * (a + b);
-        }
-        public static double FindDiagonal(double a, double b)
-        {
-            return Math.Sqrt(a * a + b * b);
-        }
-    }
     class Program
     {
-
         static void Main(string[] args)
         {
-            double height = double.Parse(Console.ReadLine());
-            double width = double.Parse(Console.ReadLine());
-            Rectangle a = new Rectangle(height, width);
-            Console.WriteLine(Rectangle.FindArea(height, width) + " m^2");
-            Console.WriteLine(Rectangle.FindPerimeter(height, width) + " m");
-            Console.WriteLine(Rectangle.FindDiagonal(height, width) + " m");
+
+            string s = Console.ReadLine();
+            StreamReader sr = new StreamReader(s);
+            string h = sr.ReadToEnd();
+            string[] a = h.Split(new Char[] { ' ', '\n' });
+
+
+            int min = 1000000;
+            int max = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                bool t = true;
+                int test = int.Parse(a[i]);
+                for (int j = 2; j * j <= test; j++)
+                {
+                    if (test % j == 0)
+                    {
+                        t = false;
+                        break;
+                    }
+                }
+                if (t && test != 1 && test > 0)
+                {
+                    min = Math.Min(min, test);
+                    max = Math.Max(max, test);
+                }
+            }
+            StreamWriter wr = new StreamWriter(@"C:\Users\user\A.txt");
+            wr.WriteLine(max);
+            wr.WriteLine(min);
+            sr.Close();
+            wr.Close();
             Console.ReadKey();
         }
     }
