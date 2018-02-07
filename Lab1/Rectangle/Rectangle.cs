@@ -8,15 +8,15 @@ namespace ConsoleApp5
 {
     class Rectangle
     {
-        public double length, width;
+        public double height, width;
         public Rectangle()
         {
-            length = 0;
+            height = 0;
             width = 0;
         }
         public Rectangle(double a, double b)
         {
-            length = a;
+            height = a;
             width = b;
         }
         public static double FindArea(double a, double b)
@@ -37,12 +37,12 @@ namespace ConsoleApp5
 
         static void Main(string[] args)
         {
-            double length = double.Parse(Console.ReadLine());
+            double height = double.Parse(Console.ReadLine());
             double width = double.Parse(Console.ReadLine());
-            Rectangle a = new Rectangle(length, width);
-            Console.WriteLine(Rectangle.FindArea(length, width) + " m^2");
-            Console.WriteLine(Rectangle.FindPerimeter(length, width) + " m");
-            Console.WriteLine(Rectangle.FindDiagonal(length, width) + " m");
+            Rectangle a = new Rectangle(height, width);
+            Console.WriteLine(Rectangle.FindArea(height, width) + " m^2");
+            Console.WriteLine(Rectangle.FindPerimeter(height, width) + " m");
+            Console.WriteLine(Rectangle.FindDiagonal(height, width) + " m");
             Console.ReadKey();
         }
     }

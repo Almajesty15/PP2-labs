@@ -8,22 +8,22 @@ namespace circle
 {
     public class Student
     {
-        public string surname, name;
+        public string Surname, name;
         public double gpa;
         public int age;
         public int height;
 
         public Student()
         {
-            surname = "Oral";
+            Surname = "Oral";
             name = "Almas";
             age = 18;
             height = 178;
             gpa = 3;
         }
-        public Student(string surname, string name, int age, int height, double gpa)
+        public Student(string Surname, string name, int age, int height, double gpa)
         {
-            this.surname = surname;
+            this.Surname = Surname;
             this.name = name;
             this.age = age;
             this.height = height;
@@ -36,7 +36,7 @@ namespace circle
 
         public override string ToString()
         {
-            return surname + ' ' + name + ' ' + age + ' ' + height + ' ' + gpa;
+            return Surname + ' ' + name + ' ' + age + ' ' + height + ' ' + gpa;
         }
 
     }
@@ -47,7 +47,7 @@ namespace circle
     {
         static void Main(string[] args)
         {
-            string surname, name;
+            string Surname, name;
             int age, height;
             double gpa;
             Surname = Console.ReadLine();
@@ -56,7 +56,7 @@ namespace circle
             height = int.Parse(Console.ReadLine());
             gpa = double.Parse(Console.ReadLine());
 
-            Student a = new Student(surname, name, age, height, gpa);
+            Student a = new Student(Surname, name, age, height, gpa);
             Student.getgpa(a.gpa);
             Console.WriteLine(a);
             Console.ReadKey();
